@@ -1,0 +1,88 @@
+<html>
+
+<head>
+  <title>Vue.js Basics</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <style>
+    .one{
+      color: green;
+    }
+    .two {
+      text-decoration: line-through;
+    }
+    .canvas {
+      width: 300px;
+      height: 300px;
+      margin-top: 20px;
+      background: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Vue Basics</h1>
+  <div id="app">
+    <h2>{{ title }}</h2>
+    <p>{{ greet('evening') }}</p>
+    <!-- data binding v-bind:<attribute name> or :<attribute name> for short -->
+    <a :href="url">YouTube</a>
+    <div :class="classes">Classes from instance</div>
+    <input type="text" :value="name">
+
+    <!-- events  v-on: or use @-->
+    <div>
+      <p>I earn {{ wage }} dollars an hour</p>
+      <button v-on:click="changeWage(1)">Increase wage by $1</button>
+      <button v-on:click="changeWage(-1)">Decrease wage by $1</button>
+      <button v-on:dblclick="changeWage(5)">Decrease wage by $5</button>
+      <button v-on:dblclick="changeWage(-5)">Decrease wage by $5</button>
+    </div>
+
+    <div>
+      <h2>{{ title }}</h2>
+      <button @click="logEvent">Log Event Info</button>
+    </div>
+
+    <div class="canvas" @mousemove="logCoords">
+      {{ coords.x }}, {{coords.y }}
+    </div>
+    <!-- v-model updates data on change -->
+    <div>
+      <p>My name is {{ name }}</p>
+      <input type="text" v-model="name">
+    </div>
+    <!-- modifiers -->
+    <div>
+      <h2>{{ title }}</h2>
+      <button @click.alt="logMessage">Click Me</button>
+      <button @click.shift="logMessage">Click Me</button>
+      <a href="http://www.google.com" @click.prevent="logMessage">Google</a>
+    </div>
+    <!-- conditionals -->
+    <div>
+      <p v-if="showName">Mario</p>
+      <p v-else-if="showAge">25</p>
+      <button @click="toggleName">ShowName: {{ showName }}</button>
+      <button @click="toggleAge">ShowAge: {{ showAge }}</button>
+    </div>
+
+    <div>
+      <ul>
+        <li v-for="item in items">{{item}}</li>
+      </ul>
+
+      <div v-for="(ninja, index) in ninjas">
+        <p>{{ index }} - {{ ninja.name }}</p>
+        <p>age: {{ ninja.age }}</p>
+        <p>belt color: {{ninja.belt }}</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>
