@@ -16,53 +16,63 @@
 
 <script>
 export default {
-  name: 'Index',
-  data () {
+  name: "Index",
+  data() {
     return {
       smoothies: [
-        {title: 'Ninja Brew', slug: 'ninja-brew', ingredients: ['banana', 'coffe', 'milk'], id: '1'},
-        {title: 'Morning Wood', slug: 'morning-wood', ingredients: ['mango', 'lime', 'juice'], id: '2'}
+        {
+          title: "Ninja Brew",
+          slug: "ninja-brew",
+          ingredients: ["banana", "coffe", "milk"],
+          id: "1"
+        },
+        {
+          title: "Morning Wood",
+          slug: "morning-wood",
+          ingredients: ["mango", "lime", "juice"],
+          id: "2"
+        }
       ]
-    }
+    };
   },
   methods: {
     deleteSmoothie(id) {
       this.smoothies = this.smoothies.filter(smoothie => {
-        return smoothie.id !== id
-      })
+        return smoothie.id !== id;
+      });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .index {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
-    margin-top: 60px;
-  }
-  .index h2 {
-    font-size: 1.8em;
-    text-align: center;
-    margin-top: 0;
-  }
+.index {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin-top: 60px;
+}
+.index h2 {
+  font-size: 1.8em;
+  text-align: center;
+  margin-top: 0;
+}
 
-  .index .ingredients{
-    margin: 30px auto;
-  }
+.index .ingredients {
+  margin: 30px auto;
+}
 
-  .index .ingredients li{ 
-    display: inline-block;
-  }
+.index .ingredients li {
+  display: inline-block;
+}
 
-  .index .delete {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    cursor: pointer;
-    color: #aaa;
-    font-size: 1.4em;
-  }
+.index .delete {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 1.4em;
+}
 </style>
